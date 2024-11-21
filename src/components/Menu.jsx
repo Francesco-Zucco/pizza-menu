@@ -60,10 +60,6 @@ const Menu = () => {
           />
         ))}
       </ul>
-      {/* <Pizza />
-      <Pizza />
-      <Pizza />
-      <Pizza /> */}
     </main>
   );
 };

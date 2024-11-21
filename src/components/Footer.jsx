@@ -1,14 +1,25 @@
-import { useState, useEffect } from "react";
 import "../index.css";
 
 const Footer = () => {
-  const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
 
-  useEffect(() => {
-    setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
-  }, []);
-
-  return <footer className="footer">{time} Currently open</footer>;
+  return (
+    <footer className="footer">
+      {isOpen ? (
+        <div className="order">
+          <p>Open until {closeHour}:00. Come visit us or order online.</p>
+          <button className="btn">Order</button>
+        </div>
+      ) : (
+        <p>
+          Restaurant is closed, come between {openHour}:00 and {closeHour}:00.
+        </p>
+      )}
+    </footer>
+  );
 };
 
 export default Footer;

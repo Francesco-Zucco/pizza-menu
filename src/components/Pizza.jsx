@@ -3,11 +3,16 @@ import "../index.css";
 const Pizza = (prop) => {
   return (
     <li className="pizza">
-      <img src={prop.photo} alt="" />
       <div>
+        <img src={prop.photo} alt="" />
+      </div>
+      <div style={{ width: "100%" }}>
         <h3>{prop.pizzaName}</h3>
         <p>{prop.ingredients}</p>
-        <span>{prop.price}</span>
+        <div className="pizza-add">
+          <span>{prop.price}.00$</span>
+          <button className="btn">Add to cart</button>
+        </div>
       </div>
     </li>
   );
